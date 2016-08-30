@@ -13,8 +13,6 @@ export default DS.Model.extend({
 	allowCustomDesign: DS.attr('boolean'),
 	description: DS.attr(),
 	
-	
-	
 	cart: DS.belongsTo('cart')
 	
 
