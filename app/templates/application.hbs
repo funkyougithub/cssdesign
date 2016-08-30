@@ -1,0 +1,48 @@
+{{#link-to "products"}}PRODUCTS{{/link-to}} // {{#link-to "cart"}}CART{{/link-to}}
+
+
+<br><br>
+MEINE LOCAL VAR: {{myvars.meinevar}} // MEINE LOCAL JSON: {{myvars.meinevarjson}}
+
+
+<br><br>
+{{#link-to "css_produkte"}}PRODUKTE{{/link-to}} // 
+{{#link-to "css_detail"}}DETAIL{{/link-to}} // 
+{{#link-to "css_warenkorb"}}WARENKORB{{/link-to}} // 
+{{#link-to "css_bestellung"}}BESTELLUNG{{/link-to}} // 
+{{#link-to "css_bestelluebersicht"}}BESTELLÜBERSICHT{{/link-to}} // 
+{{#link-to "css_diverses"}}DIVERSES{{/link-to}}
+
+<br><br><br><br>
+
+<div class="row">
+	<div class="col-sm-1"></div>
+	<div class="col-sm-10">
+				
+		<div id="breadcrumb-bestellung">
+			<ol class="cd-breadcrumb triangle">
+				
+				
+				{{#if warenkorbBreadcrumbIsDisabled}}
+					<li><em><span class="numcir">4</span> 
+					
+						{{if warenkorbBreadcrumbIsDisabled "singlevalue1" "singlevalue2"}}{{if warenkorbBreadcrumbIsDisabled (if warenkorbBreadcrumbIsDisabled "singlevalue1")}}
+				
+					</em></li>
+				{{else}}
+					<li class="current">{{#link-to "css_produkte"}}<span class="numcir">1</span> Produkte wählen{{/link-to}}</li>
+				{{/if}}
+		 
+				<li class="current"><a href="2"><span class="numcir">2</span> Bestelldaten</a></li>
+				<li><em><span class="numcir">3</span> Bestellübersicht</em></li>
+				<li><em><span class="numcir">4</span> Zahlung</em></li>
+				
+				
+			</ol>
+		</div>
+		
+		{{outlet}}
+		
+	</div>
+	<div class="col-sm-1"></div>
+</div>

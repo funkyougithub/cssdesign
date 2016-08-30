@@ -1,0 +1,273 @@
+@import "bootstrap";
+
+/*BUTTONS*/
+.btn-autosize {
+  padding: 4px 6px;
+  font-size: 14px;
+  line-height: 1.5;
+  border-radius: 3px;
+  background-color: #ccc;
+  margin-top: 6px;
+  margin-bottom: 12px;
+}
+.btn-autosize:hover {
+  background-color: #fff;
+}
+.btn-active {
+	background-color: #888;
+}
+@media screen and (min-width: 768px) {
+  .btn-autosize {
+    margin-bottom: 18px;
+	padding: 10px 16px;
+    font-size: 16px;
+    line-height: 1.33;
+    border-radius: 6px;
+  }
+}
+/*BUTTONS*/
+/*TABLES*/
+table td:nth-child(2), table th:nth-child(2) {display: none; }
+/*td .glyphicon.glyphicon-trash {font-size: 24px; }*/
+.my-btn-trash{background-color: transparent !important; border: none; }
+td .img-thumbnail {max-width: none; margin-right: 12px; margin-bottom: 8px; float: left; width: 100px; height: auto;}
+td .form-control{padding: 1px 2px; }
+.fett{font-weight: bold; }
+.valigner button{margin-top: 50px; }
+.warenkorb-text{font-size: 13px; }
+.warenkorb-summe{font-size: 18px; margin-top: 12px; }
+.tdtextright{text-align: right; }
+@media screen and (min-width: 420px) {
+	table td:nth-child(2), table th:nth-child(2) {display: table-cell; }
+	.warenkorb-text{font-size: 18px; }
+	.warenkorb-summe{font-size: 24px; margin-top: 12px; }
+}
+@media screen and (min-width: 580px) {
+	td .img-thumbnail {width: 140px; }
+	td .form-control{padding: 6px 12px; max-width: 80%; }
+	.valigner{vertical-align: top; } /*http://stackoverflow.com/questions/7550884/vertically-align-div-contained-in-td*/
+	.valigner select{float: left; }
+	.valigner button{
+		float: left;
+		clear: both;
+		margin-top: 100px;
+		text-align: left;
+	}
+}
+@media screen and (min-width: 768px) {
+	td .img-thumbnail {width: 180px; }
+	.valigner button{margin-top: 140px; }
+}
+@media screen and (min-width: 992px) {
+	td .img-thumbnail {width: 200px; }
+	td .form-control{max-width: 50%; }
+	.valigner button{margin-top: 160px; }
+}
+/*TABLES*/
+/*PRODUKTE*/
+.produkte .panel .img-thumbnail {width: 120px; margin: 0; }
+.produkte .panel-heading{height: 46px; overflow: hidden; }
+@media screen and (min-width: 420px) {
+	.produkte .panel{display: inline-block; width: 47%; margin-right: 2%; }
+	.produkte .panel .img-thumbnail {width: 100%; margin: 0; }
+}
+@media screen and (min-width: 580px) {
+	.produkte .panel{display: inline-block; width: 30%; margin-right: 2%; }	
+}
+@media screen and (min-width: 768px) {
+	.produkte .panel{display: inline-block; width: 23%; margin-right: 1%; }	
+}
+@media screen and (min-width: 992px) {
+	.produkte .panel{display: inline-block; width: 18%; margin-right: 1%; }		
+}
+@media screen and (min-width: 1200px) {
+	.produkte .panel{display: inline-block; width: 15%; margin-right: 1%; }	
+}
+/*PRODUKTE*/
+/*PRODUKTEDETAIL*/
+.produkt-detail-bild{max-width: 240px; margin-bottom: 18px; }
+@media screen and (min-width: 768px) {
+	.produkt-detail-bild{max-width: 100%; }
+}
+/*PRODUKTEDETAIL*/
+/*BESTELLFORMULAR*/
+.checkrespekt{padding-bottom: 12px; }
+.hoverpointer:hover{cursor: pointer; }
+/*BESTELLFORMULAR*/
+
+
+
+
+
+
+
+
+
+/* BREADCRUMB ---------------------------------------------------------------- */
+*, *::after, *::before {
+  box-sizing: border-box;
+}
+
+#breadcrumb-bestellung a {
+  text-decoration: none;
+}
+
+.cd-breadcrumb, .cd-multi-steps {
+  width: 100%;
+  /*max-width: 768px;*/
+  padding: 0;
+  margin: 0;
+  background-color: #eeeeee;
+  border-radius: 4px;
+}
+.cd-breadcrumb::after, .cd-multi-steps::after {
+  clear: both;
+  content: "";
+  display: table;
+}
+.cd-breadcrumb li, .cd-multi-steps li {
+  display: inline-block;
+  float: left;
+  margin: 5px 0;
+}
+.cd-breadcrumb li::after, .cd-multi-steps li::after {
+  /* this is the separator between items */
+  display: inline-block;
+  content: '\00bb';
+  margin: 6px;
+  color: #999999;
+}
+.cd-breadcrumb li:last-of-type::after, .cd-multi-steps li:last-of-type::after {
+  /* hide separator after the last item */
+  display: none;
+}
+.cd-breadcrumb li > *, .cd-multi-steps li > * {
+  /* single step */
+  display: inline-block;
+  font-size: 16px;
+  color: #666666;
+}
+.cd-breadcrumb li.current > *, .cd-multi-steps li.current > * {
+  /* selected step */
+  color: #000000;
+}
+.no-touch .cd-breadcrumb a:hover, .no-touch .cd-multi-steps a:hover {
+  /* steps already visited */
+  color: #666666;
+}
+@media only screen and (min-width: 768px) {
+  .cd-breadcrumb li > *, .cd-multi-steps li > * {
+    font-size: 18px;
+  }
+}
+/* ---------------------------------------------------------------- */
+@media only screen and (min-width: 768px) {
+  .cd-breadcrumb.triangle {
+    /* reset basic style */
+    background-color: transparent;
+    padding: 0;
+  }
+  .cd-breadcrumb.triangle li {
+    position: relative;
+    padding: 0;
+    margin: 0px 4px 4px 0;
+  }
+  .cd-breadcrumb.triangle li:last-of-type {
+    margin-right: 0;
+  }
+  .cd-breadcrumb.triangle li > * {
+    position: relative;
+    padding: 8px 8px 10px 25px;
+    color: #999999;
+    background-color: #cccccc;
+    /* the border color is used to style its ::after pseudo-element */
+    border-color: #cccccc;
+  }
+  .cd-breadcrumb.triangle li.current > * {
+    /* selected step */
+    color: #ffffff;
+    background-color: #96c03d;
+    border-color: #96c03d;
+  }
+  .cd-breadcrumb.triangle li:first-of-type > * {
+    padding-left: 16px;
+    border-radius: 6px 0 0 6px;
+  }
+  .cd-breadcrumb.triangle li:last-of-type > * {
+    padding-right: 16px;
+    border-radius: 0 6px 6px 0;
+  }
+  .no-touch .cd-breadcrumb.triangle a:hover {
+    /* steps already visited */
+    color: #ffffff;
+    background-color: #cccccc;
+    border-color: #cccccc;
+  }
+  .cd-breadcrumb.triangle li::after, .cd-breadcrumb.triangle li > *::after {
+    /* 
+    	li > *::after is the colored triangle after each item
+    	li::after is the white separator between two items
+    */
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 100%;
+    content: '';
+    height: 0;
+    width: 0;
+    /* 48px is the height of the <a> element */
+    border: 22px solid transparent;
+    border-right-width: 0;
+    border-left-width: 20px;
+  }
+  .cd-breadcrumb.triangle li::after {
+    /* this is the white separator between two items */
+    z-index: 1;
+    -webkit-transform: translateX(4px);
+    -moz-transform: translateX(4px);
+    -ms-transform: translateX(4px);
+    -o-transform: translateX(4px);
+    transform: translateX(4px);
+    border-left-color: #ffffff;
+    /* reset style */
+    margin: 0;
+  }
+  .cd-breadcrumb.triangle li > *::after {
+    /* this is the colored triangle after each element */
+    z-index: 2;
+    border-left-color: inherit;
+  }
+  .cd-breadcrumb.triangle li:last-of-type::after, .cd-breadcrumb.triangle li:last-of-type > *::after {
+    /* hide the triangle after the last step */
+    display: none;
+  }
+  .cd-breadcrumb.triangle.custom-separator li::after {
+    /* reset style */
+    background-image: none;
+  }
+  @-moz-document url-prefix() {
+    .cd-breadcrumb.triangle li::after,
+    .cd-breadcrumb.triangle li > *::after {
+      /* fix a bug on Firefix - tooth edge on css triangle */
+      border-left-style: dashed;
+    }
+  }
+}
+/* ---------------------------------------------------------------- */
+.numcir {
+    display: inline-block;
+	border-radius: 50%;
+
+    width: 24px;
+    height: 24px;
+    padding: 2px;
+
+    border: none;
+    color: #999;
+    background-color: #fff;	
+    text-align: center;
+
+    font: 16px Arial, sans-serif;
+	font-weight: bold;
+}
+/* BREADCRUMB ---------------------------------------------------------------- */
