@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import RSVP from 'rsvp';
 
 const {
   inject: {
@@ -10,10 +11,10 @@ export default Ember.Route.extend({
 	
 	cart: service(),
 
-	model() {
+	model() {	
 		return this.get('cart').getCart();
-	},
-
+	},	
+		
 	actions: {
 
 	}

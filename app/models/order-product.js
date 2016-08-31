@@ -2,7 +2,11 @@ import DS from 'ember-data';
 
 export default DS.Model.extend({
 
-	amount: DS.attr('number'),
-	product: DS.belongsTo('product')
+	anzahl: DS.attr('number'),
+	product: DS.belongsTo('product'),
+	
+	betrag: DS.attr('number'),
+	head: DS.attr('string'),
+	text: DS.attr('string')
 
 });

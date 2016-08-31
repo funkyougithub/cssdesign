@@ -1,65 +1,68 @@
 
-<table class="table table-striped">
-	<thead>
-	  <tr>
-		<th>ARTIKEL</th>
-		<th>PREIS</th>
-		<th>SUMME</th>
-		<th>ANZAHL</th>
-		</tr>
-	</thead>
-	<tbody>
+{{#if isWarenkorbLeer}}
 
-		
-		{{#each model.orderProducts as |orderProduct|}}	
-			<tr>
-				<td>
-					{{#link-to "product" orderProduct.product}}
-						<img src="https://3.bp.blogspot.com/-W__wiaHUjwI/Vt3Grd8df0I/AAAAAAAAA78/7xqUNj8ujtY/s1600/image02.png" class="img-thumbnail" alt="A generic square placeholder">
-					{{/link-to}}
-					<div>
-						{{#link-to "product" orderProduct.product}}
-							<span class="warenkorb-text">
-								{{orderProduct.product.name.DE}} // Kategorie: {{orderProduct.product.category.name.DE}} // ID: {{orderProduct.product.id}}
-							</span>
-						{{/link-to}}
-					</div>
-				</td>
-				<td class="text-nowrap"><span class="warenkorb-text">€ 125,-</span></td>
-				<td class="text-nowrap"><span class="warenkorb-text">€ 425,-</span></td>
-				<td class="valigner">
-					Anzahl: {{orderProduct.amount}}
-					<select id="" class="form-control">
-					<option>1</option>
-					<option>2</option>
-					<option>3</option>
-					<option>4</option>
-					<option>5</option>
-					<option>6</option>
-					<option>7</option>
-					<option>8</option>
-					<option>9</option>
-					<option>10</option>
-					</select>
-					<button type="button" class="btn btn-default my-btn-trash"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> löschen</button>
-				</td>
+	<table class="table table-striped">
+		<thead>
+		  <tr>
+			<th>ARTIKEL</th>
+			<th>PREIS</th>
+			<th>SUMME</th>
+			<th>ANZAHL</th>
 			</tr>
-		{{/each}}
-		
-		
-		<tr>
-			<th><span class="warenkorb-text">GESAMTSUMME</span></th>
-			<th></th>
-			<th colspan="2" class="text-nowrap"><span class="warenkorb-summe">€ XXXXXXXXX,-</span></th>
-		</tr>
-		
-		<tr>
-			<th><button type="button" class="btn btn-default"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> JETZT BESTELLEN</button></th>
-			<th></th>
-			<th colspan="2"></th>
-		</tr>
+		</thead>
+		<tbody>
 
-		
-	</tbody>
-</table>
+			
+			{{#each model.orderProducts as |orderProduct|}}	
+				<tr>
+					<td>
+						{{#link-to "product" orderProduct.product}}
+							<img src="https://3.bp.blogspot.com/-W__wiaHUjwI/Vt3Grd8df0I/AAAAAAAAA78/7xqUNj8ujtY/s1600/image02.png" class="img-thumbnail" alt="A generic square placeholder">
+						{{/link-to}}
+						<div>
+							{{#link-to "product" orderProduct.product}}
+								<span class="warenkorb-text">
+									{{orderProduct.product.namelg}} // ID: {{orderProduct.product.id}} // 
+									BETRAG: {{orderProduct.betrag}} // HEAD: {{orderProduct.head}} // TEXT: {{orderProduct.text}} 
+								</span>
+							{{/link-to}}
+						</div>
+					</td>
+					<td class="text-nowrap"><span class="warenkorb-text">€ 125,-</span></td>
+					<td class="text-nowrap"><span class="warenkorb-text">€ 425,-</span></td>
+					<td class="valigner">
+						Anzahl: {{orderProduct.anzahl}}
+
+						<select onchange={{action "warenkorb_anzahl" orderProduct orderProduct.product.id target.value}} class="form-control">
+							{{#each selectarr as |i|}}
+								<option value="{{i}}" selected={{selectanzahl orderProduct.anzahl i}}>{{i}}</option>
+							{{/each}}
+						</select>
+						
+						<button type="button" class="btn btn-default my-btn-trash"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> löschen</button>
+					</td>
+				</tr>
+			{{/each}}
+			
+			
+			<tr>
+				<th><span class="warenkorb-text">GESAMTSUMME</span></th>
+				<th></th>
+				<th colspan="2" class="text-nowrap"><span class="warenkorb-summe">€ XXXXXXXXX,-</span></th>
+			</tr>
+			
+			<tr>
+				<th><button type="button" class="btn btn-default"><span class="glyphicon glyphicon-ok" aria-hidden="true"></span> JETZT BESTELLEN</button></th>
+				<th></th>
+				<th colspan="2"></th>
+			</tr>
+
+			
+		</tbody>
+	</table>
+
+{{else}}
   
+	WARENKORB LEER
+
+{{/if}} 

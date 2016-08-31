@@ -1,5 +1,15 @@
 @import "bootstrap";
 
+/*BASE*/
+body {
+  padding-top: 20px;
+}
+.btn.disabled, .btn[disabled] {
+    background-color: #cc0000 !important;
+	color: #ffffff !important;
+}
+/*BASE*/
+
 /*BUTTONS*/
 .btn-autosize {
   padding: 4px 6px;
@@ -85,6 +95,7 @@ td .form-control{padding: 1px 2px; }
 }
 /*PRODUKTE*/
 /*PRODUKTEDETAIL*/
+.glyp-my-correct{top: 24px; }
 .produkt-detail-bild{max-width: 240px; margin-bottom: 18px; }
 @media screen and (min-width: 768px) {
 	.produkt-detail-bild{max-width: 100%; }

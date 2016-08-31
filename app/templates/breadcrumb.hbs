@@ -1,0 +1,21 @@
+<div id="breadcrumb-bestellung">
+	<ol class="cd-breadcrumb triangle">
+		
+		
+		{{#if warenkorbBreadcrumbIsDisabled}}
+			<li><em><span class="numcir">4</span> 
+			
+				{{if warenkorbBreadcrumbIsDisabled "singlevalue1" "singlevalue2"}}{{if warenkorbBreadcrumbIsDisabled (if warenkorbBreadcrumbIsDisabled "singlevalue1")}}
+		
+			</em></li>
+		{{else}}
+			<li class="current">{{#link-to "css_produkte"}}<span class="numcir">1</span> Produkte wählen{{/link-to}}</li>
+		{{/if}}
+ 
+		<li class="current"><a href="2"><span class="numcir">2</span> Bestelldaten</a></li>
+		<li><em><span class="numcir">3</span> Bestellübersicht</em></li>
+		<li><em><span class="numcir">4</span> Zahlung</em></li>
+		
+		
+	</ol>
+</div>

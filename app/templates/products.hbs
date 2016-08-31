@@ -1,14 +1,14 @@
 
 
 {{#link-to "products"}}
-	<button type="button" class="btn btn-default btn-autosize btn-active">Alle Kategorien</button>
+	<button type="button" {{action "aktkategorie_reset"}} class="btn btn-default btn-autosize btn-active">Alle Kategorien</button>
 {{/link-to}}
 
 
 {{#each model.categories as |category|}}
 	{{#link-to "products" }}
 
-		<button type="button" {{action "meinkategorie_mach" category.id}} class="btn btn-default btn-autosize btn-active">{{category.name.DE}}</button> 
+		<button type="button" {{action "aktkategorie_mach" category.id}} class="btn btn-default btn-autosize btn-active">{{category.namelg}}</button> 
 
 	{{/link-to}}
 {{/each}}
@@ -18,24 +18,15 @@
 <div class="produkte">
 
 	{{#each filteredproducts as |product|}}
-		  <div class="panel panel-default">
-		  {{#link-to "product" product}}
+		  <div class="panel panel-default"> 
+			<div class="panel-heading">
+				{{#link-to "product" product}}<h3 class="panel-title">{{product.namelg}}</h3>{{/link-to}}
+			</div>	
+			<div class="panel-body">
+			PREIS: {{product.preis}}
+			<img src="https://3.bp.blogspot.com/-W__wiaHUjwI/Vt3Grd8df0I/AAAAAAAAA78/7xqUNj8ujtY/s1600/image02.png" class="img-thumbnail" alt="A generic square placeholder"></div>
 		  
-			<div class="panel-heading"><h3 class="panel-title">{{product.name.DE}} {{product.category.name.DE}}</h3></div>
-			<div class="panel-body"><img src="https://3.bp.blogspot.com/-W__wiaHUjwI/Vt3Grd8df0I/AAAAAAAAA78/7xqUNj8ujtY/s1600/image02.png" class="img-thumbnail" alt="A generic square placeholder"></div>
 		  
-		  {{/link-to}}
-		  </div>
-	{{/each}}
-	
-		{{#each model.products as |product|}}
-		  <div class="panel panel-default">
-		  {{#link-to "product" product}}
-		  
-			<div class="panel-heading"><h3 class="panel-title">{{product.name.DE}} {{product.category.name.DE}}</h3></div>
-			<div class="panel-body"><img src="https://3.bp.blogspot.com/-W__wiaHUjwI/Vt3Grd8df0I/AAAAAAAAA78/7xqUNj8ujtY/s1600/image02.png" class="img-thumbnail" alt="A generic square placeholder"></div>
-		  
-		  {{/link-to}}
 		  </div>
 	{{/each}}
 

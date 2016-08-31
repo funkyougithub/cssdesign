@@ -2,36 +2,30 @@ import Ember from 'ember';
 import { storageFor } from 'ember-local-storage';
 
 export default Ember.Controller.extend({
-	
-	meinkategorie: null,
-	
-	filteredproducts: Ember.computed(model.products, 'meinkategorie', function() {
-		
-		if ( this.get('meinkategorie') == null ) {
+
+
+	aktkategorie: null,
+  
+  	filteredproducts: Ember.computed('model.products', 'aktkategorie', function() {
+
+		if ( this.get('aktkategorie') === null ) {
 			return this.get('model.products');
-		}else{
-			return this.get('model.products');
+		} else {
+			return this.get('model.products').filter(product => {
+				return product.get('categories').contains( this.get('aktkategorie') );
+			});
 		}
-		
-	})
-  
-  
+
+	}),
   
 	actions: {
 		
-		meinkategorie_mach(id) {
-			this.set('meinkategorie', id);
-		}
-		
-		/*
-		countUp() {
-			//this.incrementProperty('myvars.counter');
-			//alert( this.get('myvars.mycustomg') );
+		aktkategorie_mach(id) {
+			this.set('aktkategorie', id);
 		},
-		resetMyvars() {
-			//this.get('myvars').reset();
+		aktkategorie_reset() {
+			this.set('aktkategorie', null);
 		}
-		*/
 
 	}
 	

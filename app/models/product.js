@@ -1,6 +1,9 @@
 import DS from 'ember-data';
+import { storageFor } from 'ember-local-storage';
 
 export default DS.Model.extend({
+	
+	myvars: storageFor('myvars'),
 	
 	name: DS.attr(),
 	allowCustomText: DS.attr('boolean'),
@@ -12,35 +15,25 @@ export default DS.Model.extend({
 		//priceWithoutTax
 	allowCustomDesign: DS.attr('boolean'),
 	description: DS.attr(),
-	
-	cart: DS.belongsTo('cart')
-	
+	categories: DS.attr(),
 
+	cart: DS.belongsTo('cart'),
 	
+	namelg: Ember.computed('myvars.vclg', function() {
+		let hlprlg = this.get('myvars.vclg');
+		return this.get("name")[hlprlg];
+	}),
 	
-	//categories: DS.hasMany('category')
-	//category: DS.belongsTo('category'),
-	
+	preis: Ember.computed('myvars.vccu', function() {
+		let hlprcu = this.get('myvars.vccu');
+		return this.get( "config.priceWithoutTax." + hlprcu ) + '/' + this.get( "config.priceWithTax." + hlprcu );
+	})
 	
 	/*
-	categories: DS.attr(),
-	
-	ausgeschrieben: Ember.computed('name', function() {
-		//return `${this.get('name.` + this.get('produktsprache') + `')}`;
-		return this.get('name.DE');
-	})	*/
-	
-		
-	/*,
-
-	ausgeschrieben: Ember.computed('name.DE', function() {
-		//return `${this.get('name.DE')}`;
-		return `${this.get('name.DE')}`;
-	})*/
-
-	
-	
-	
-	//'number' 'string'
+	i18n: Ember.inject.service("i18n"),
+	localizedName: Ember.computed("i18n.locale", "name", function() {
+		return this.get("name")[this.get("i18n.locale")];
+	})
+	*/
 	
 });
