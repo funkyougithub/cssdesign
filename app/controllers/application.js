@@ -17,26 +17,14 @@ export default Ember.Controller.extend({
 		
 	actions: {
 		
-		warenkorb_anzahl() {
-			this.get('cart').getItemAnzahl();
-		},
 		warenkorb_emtpy() {
-			return this.get('cart').emtpyCart()
-				.then((response) => { 
-				this.transitionToRoute('cart');
-			});
+			this.get('cart').emtpyCart();
+		},		
+		sprache_mach(lg) {
+			this.set('myvars.vclg', lg);
 		},
-		sprache_mach_de() {
-			this.set('myvars.vclg', 'DE');
-		},
-		sprache_mach_en() {
-			this.set('myvars.vclg', 'EN');
-		},
-		geld_mach_eur() {
-			this.set('myvars.vccu', 'EUR');
-		},
-		geld_mach_usd() {
-			this.set('myvars.vccu', 'USD');
+		geld_mach(cur) {
+			this.set('myvars.vccu', cur);
 		}
 
 	}

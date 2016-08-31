@@ -56,7 +56,7 @@ td .form-control{padding: 1px 2px; }
 	td .img-thumbnail {width: 140px; }
 	td .form-control{padding: 6px 12px; max-width: 80%; }
 	.valigner{vertical-align: top; } /*http://stackoverflow.com/questions/7550884/vertically-align-div-contained-in-td*/
-	.valigner select{float: left; }
+	.valigner div{float: left; }
 	.valigner button{
 		float: left;
 		clear: both;

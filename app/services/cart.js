@@ -17,6 +17,7 @@ export default Ember.Service.extend({
 			if (carts.get('length') === 0) {
 				return this.get('store').createRecord('cart');
 			} else {
+				//console.log('firstObject');
 				return carts.get('firstObject');
 			}
 		});
@@ -46,21 +47,33 @@ export default Ember.Service.extend({
 		});
 		
 	},
-
-	anzahlItem(product, id, anzahl) {
-
+	
+	itemAnzahl(product, id, job){
+		
 		return this.getCart()
 		.then(cart => {
 			let orderProduct = cart.get('orderProducts')
 			.find(orderProduct => {
 				return orderProduct.get('product.id') === id;
 			});
+			
 			if (orderProduct) {
-				orderProduct.set('anzahl', anzahl);				
+				if(job == 'up'){
+					orderProduct.incrementProperty('anzahl');
+				}else if(job == 'down'){
+					orderProduct.decrementProperty('anzahl');
+				}
+				let myanz = orderProduct.get('anzahl');
+				if( myanz < 1){
+					orderProduct.set('anzahl', 1);
+				}else if(myanz > 10){
+					orderProduct.set('anzahl', 10);
+				}
 				return orderProduct.save();
 			}
+			
 		});
-
+		
 	},
 
 	addItem(product, betrag, head, text) { 
@@ -92,48 +105,50 @@ export default Ember.Service.extend({
 		});
 	},
 
-	emtpyCart() {
-	
-/*
-		this.get('store')
-		.findAll('order-product')
-		.then(orderProduct => {
-			
-			
-			
-			
-			//console.log( orderProduct.get('length') );
-			orderProduct.get('length');
-			cart.get('firstObject').destroyRecord();
-		});
-*/
-	
-		return this.get('store')
-		.findAll('cart')
+	itemDelete(product, id){
+		
+		return this.getCart()
 		.then(cart => {
 			
-			//hier fehlt noch orderProducts zerstören
-			/*
-			cart.get('orderProducts').then(function(orderProduct){
-				orderProduct.content.forEach(function(rec) {
-					Ember.run.once(this, function() {
-						rec.deleteRecord();
-						rec.save();
-					});
-				}, this);
+			let orderProduct = cart.get('orderProducts')
+			.find(orderProduct => {
+				return orderProduct.get('product.id') === id;
 			});
-			cart.get('orderProducts').forEach(orderProduct => {
-				return orderProduct.destroyRecord();
-			});*/
 			
-			if( cart.get('firstObject') )
-				return cart.get('firstObject').destroyRecord();
+			if (orderProduct) {
+				orderProduct.destroyRecord();
+			}
 			
 		});
+		
+	},
+	
+	emtpyCart() {
+	
+		this.get('store')
+		.findAll('order-product')
+		.forEach(orderProduct => {
+			orderProduct.destroyRecord();
+		});
 
+		/*this.get('store')
+		.findAll('cart')
+		.forEach(cart => {
+			cart.destroyRecord();
+		});*/
 		
-		
+		this.get('store')
+		.findAll('cart')
+		.then(cart => {	
+			if( cart.get('firstObject') ){
+				cart.get('firstObject').get('orderProducts').forEach(orderProduct => {
+					orderProduct.destroyRecord();
+				});
+				cart.get('firstObject').destroyRecord();
+			}
+		});
 		
 	}
+
 	
-});
+});	

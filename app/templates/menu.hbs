@@ -1,18 +1,21 @@
+
+
+<button {{action "warenkorb_emtpy"}}>WARENKORB LEEREN</button> // <button {{action "warenkorb_anzahl"}}>WARENKORB ANZAHL</button>
+
+
+<br><br>
+{{#each myvars.languages as |lg|}}
+	<button {{action "sprache_mach" lg.code}}>{{lg.name}}</button>
+{{/each}}
+////
+{{#each myvars.currencies as |cu|}}
+	<button {{action "geld_mach" cu}}>{{cu}}</button>
+{{/each}}
+
+
+<br><br>
 {{#link-to "products"}}PRODUCTS{{/link-to}} // {{#link-to "cart"}}CART{{/link-to}}
 
-<br><br>
-<button {{action "sprache_mach_de"}}>DE</button> // <button {{action "sprache_mach_en"}}>EN</button> // VAL: {{myvars.vclg}}
-<br>
-<button {{action "geld_mach_eur"}}>EUR</button> // <button {{action "geld_mach_usd"}}>USD</button> // VAL: {{myvars.vccu}}
-
-<br><br>
-<button {{action "warenkorb_emtpy"}}>WARENKORB LEEREN</button>
-
-<br><br>
-<button {{action "warenkorb_anzahl"}}>WARENKORB ANZAHL</button>
-
-<br><br>
-MEINE LOCAL VAR: {{myvars.meinevar}} // MEINE LOCAL JSON: {{meinevarjson}}
 
 <br><br>
 {{#link-to "css_produkte"}}PRODUKTE{{/link-to}} // 

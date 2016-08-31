@@ -1,3 +1,4 @@
+/*
 import Ember from 'ember';
 
 export default Ember.Service.extend({
@@ -8,15 +9,15 @@ export default Ember.Service.extend({
 			alert("NO COOKIES ALLOWED");
 	},
 	
-	/*
-	getMyCookieHash() {
-		//https://www.sitepoint.com/how-to-deal-with-cookies-in-javascript/
-		var myLocalCookie = this.getMyCookie();
-		if (myLocalCookie == null)
-			this.setMyCookie();	
-		return this.getMyCookie();	
-	},
-	*/
+	
+	//getMyCookieHash() {
+	//	//https://www.sitepoint.com/how-to-deal-with-cookies-in-javascript/
+	//	var myLocalCookie = this.getMyCookie();
+	//	if (myLocalCookie == null)
+	//		this.setMyCookie();	
+	//	return this.getMyCookie();	
+	//},
+	
 	
 	//this.get('cookie').setMyCookie('vclg','DE');
 	
@@ -35,3 +36,4 @@ export default Ember.Service.extend({
 	}	
 	
 });
+*/

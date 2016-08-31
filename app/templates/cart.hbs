@@ -31,15 +31,15 @@
 					<td class="text-nowrap"><span class="warenkorb-text">€ 125,-</span></td>
 					<td class="text-nowrap"><span class="warenkorb-text">€ 425,-</span></td>
 					<td class="valigner">
-						Anzahl: {{orderProduct.anzahl}}
+						<div class="warenkorb-text">
+							{{orderProduct.anzahl}} 
+							<a {{action "warenkorb_anzahl_down" orderProduct orderProduct.product.id}}><span class="glyphicon glyphicon-download" aria-hidden="true"></span></a> 
+							<a {{action "warenkorb_anzahl_up" orderProduct orderProduct.product.id}}><span class="glyphicon glyphicon-upload" aria-hidden="true"></span></a>
+						</div>
 
-						<select onchange={{action "warenkorb_anzahl" orderProduct orderProduct.product.id target.value}} class="form-control">
-							{{#each selectarr as |i|}}
-								<option value="{{i}}" selected={{selectanzahl orderProduct.anzahl i}}>{{i}}</option>
-							{{/each}}
-						</select>
+
 						
-						<button type="button" class="btn btn-default my-btn-trash"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> löschen</button>
+						<button {{action "warenkorb_delete_item" orderProduct orderProduct.product.id}} type="button" class="btn btn-default my-btn-trash"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span> löschen</button>
 					</td>
 				</tr>
 			{{/each}}
